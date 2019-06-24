@@ -25,7 +25,7 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
                 new[] { 93, 96, 13, 95, 98, 18, 59, 49, 86 }, 
                 new[] { "f", "Pt", "PT", "fT", "Cp", "C", "t", "", "cCp", "ttp", "PCFt", "P", "pCt", "cP", "Pc" }, 
                 new[] { 2, 6, 6, 2, 4, 4, 5, 0, 5, 5, 6, 6, 3, 5, 6 });
-            Console.ReadKey(true);
+       
         }
 
         private static void Test(int[] protein, int[] carbs, int[] fat, string[] dietPlans, int[] expected)
@@ -73,36 +73,36 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
                     switch (d)
                     {
                         case 'p':
-                            min = GetMinValue(protein, itemIndexes);
-                            itemIndexes = GetIndex(protein, itemIndexes, min);
+                            min = Solution.GetMinValue(protein, itemIndexes);
+                            itemIndexes = Solution.GetIndex(protein, itemIndexes, min);
                             break;
                         case 'P':
-                            max = GetMaxValue(protein, itemIndexes);
-                            itemIndexes = GetIndex(protein, itemIndexes, max);
+                            max = Solution.GetMaxValue(protein, itemIndexes);
+                            itemIndexes = Solution.GetIndex(protein, itemIndexes, max);
                             break;
                         case 'c':
-                            min = GetMinValue(carbs, itemIndexes);
-                            itemIndexes = GetIndex(carbs, itemIndexes, min);
+                            min = Solution.GetMinValue(carbs, itemIndexes);
+                            itemIndexes = Solution.GetIndex(carbs, itemIndexes, min);
                             break;
                         case 'C':
-                            max = GetMaxValue(carbs, itemIndexes);
-                            itemIndexes = GetIndex(carbs, itemIndexes, max);
+                            max = Solution.GetMaxValue(carbs, itemIndexes);
+                            itemIndexes = Solution.GetIndex(carbs, itemIndexes, max);
                             break;
                         case 'f':
-                            min = GetMinValue(fat, itemIndexes);
-                            itemIndexes = GetIndex(fat, itemIndexes, min);
+                            min = Solution.GetMinValue(fat, itemIndexes);
+                            itemIndexes = Solution.GetIndex(fat, itemIndexes, min);
                             break;
                         case 'F':
-                            max = GetMaxValue(fat, itemIndexes);
-                            itemIndexes = GetIndex(fat, itemIndexes, max);
+                            max = Solution.GetMaxValue(fat, itemIndexes);
+                            itemIndexes = Solution.GetIndex(fat, itemIndexes, max);
                             break;
                         case 't':
-                            min = GetMinValue(calories, itemIndexes);
-                            itemIndexes = GetIndex(calories, itemIndexes, min);
+                            min = Solution.GetMinValue(calories, itemIndexes);
+                            itemIndexes = Solution.GetIndex(calories, itemIndexes, min);
                             break;
                         case 'T':
-                            min = GetMaxValue(calories, itemIndexes);
-                            itemIndexes = GetIndex(calories, itemIndexes, min);
+                            min = Solution.GetMaxValue(calories, itemIndexes);
+                            itemIndexes = Solution.GetIndex(calories, itemIndexes, min);
                             break;
                         default:
                             continue;
@@ -115,39 +115,6 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
             //     Console.WriteLine($"debug {i}");
             return selectedItemIndexes;
             throw new NotImplementedException();
-        }
-        
-        //function to find min item from the items accordence to itemIndexes
-        public static int GetMinValue(int[] items, List<int> itemIndexes){
-            int min = int.MaxValue;
-            foreach(var i in itemIndexes){
-                if(min>items[i])
-                    min = items[i];
-            }
-            // Console.WriteLine($"print min {min}");
-            return min;
-        }
-        //function to find max item from the items accordence to itemIndexes
-        public static int GetMaxValue(int[] items, List<int> itemIndexes){
-            int max = int.MinValue;
-            foreach(var i in itemIndexes){
-                if(max<items[i])
-                    max = items[i];
-            }
-            // Console.WriteLine($"print max {max}");
-            return max;
-        }
-    
-    
-        public static List<int> GetIndex(int[] items, List<int> itemIndexes, int element){
-            var temp = new List<int>();
-            foreach(var i in itemIndexes){
-                if(items[i]==element)
-                    temp.Add(i);
-            }
-            return temp;
-            // foreach(var i in temp)
-            //     Console.log($"print indexes {i}");
         }
     }
 }
