@@ -15,7 +15,6 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
             // Console.WriteLine($"print min {min}");
             return min;
         }
-        //function to find max item from the items accordence to itemIndexes
         public static int GetMaxValue(int[] items, List<int> itemIndexes)
         {
             int max = int.MinValue;
@@ -24,7 +23,6 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
                 if (max < items[i])
                     max = items[i];
             }
-            // Console.WriteLine($"print max {max}");
             return max;
         }
 
@@ -38,20 +36,16 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
                     temp.Add(i);
             }
             return temp;
-            // foreach(var i in temp)
-            //     Console.log($"print indexes {i}");
+       
         }
         public int[] SelectMeals(int[] protein, int[] carbs, int[] fat, string[] dietPlans)
         {
             int n = protein.Length;
             int[] calories = new int[n];
-
-            //calculate calories 
             for (int i = 0; i < n; i++)
                 calories[i] = fat[i] * 9 + (protein[i] + carbs[i]) * 5;
             int len = dietPlans.Length;
 
-            //Stores selected index for the dietPlans
             int[] selectedItemIndexes = new int[dietPlans.Length];
 
             for (int i = 0; i < len; i++)
@@ -60,18 +54,14 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
                 var itemIndexes = new List<int>();
 
                 int dietLength = diet.Length;
-                //if diet has empty string than it will select first index i.e., 0
                 if (dietLength == 0)
                 {
                     selectedItemIndexes[i] = 0;
                     continue;
                 }
-                //adding indexes to itemIdexes for further calculations 
-                //upto the length of array of protien, carb or fat
                 for (int j = 0; j < n; j++)
                     itemIndexes.Add(j);
 
-                //iterate each character of each diet inthe dietplans 
                 foreach (var d in diet)
                 {
                     int min, max;
@@ -113,13 +103,9 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
                             continue;
                     }
                 }
-                //adding first item from itemIndexes to selectedItemIndexes
                 selectedItemIndexes[i] = itemIndexes[0];
             }
-            // foreach(var i in selectedItemIndexes)
-            //     Console.WriteLine($"debug {i}");
             return selectedItemIndexes;
-            throw new NotImplementedException();
         }
     }
 }

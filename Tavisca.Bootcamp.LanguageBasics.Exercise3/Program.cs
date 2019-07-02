@@ -41,7 +41,6 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
         public static int[] SelectMeals(int[] protein, int[] carbs, int[] fat, string[] dietPlans)
         {
             return new RestaurantMeal().SelectMeals(protein, carbs, fat, dietPlans);
-            throw new NotImplementedException();
         }
     }
 }
